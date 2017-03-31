@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ShopShop</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                 crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function mainmenu() {
+            $("#nav ul").css({ display: "none" });//opera fix
+            $("#nav li").hover(function () {
+                $(this).find('ul:first').css({ visibility: "visible", display: "none" }).show(400);
+            },
+            function () {
+                $(this).find('ul:first').css({ visibility: "hidden" });
+            });
+        }
+        $(document).ready(function () {
+            mainmenu();
+        });
+
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Styles/StyleSheet.css"/>
+  
+</head>
+<body>
+    <form id="form1" runat="server">
+           <div id="wrapper">
+               <div id="banner">
+
+
+               </div><!--banner-->
+                <div id="navigationBar">
+                    <ul id="nav">
+
+                        <li> <a href="#" > Home</a> </li>
+                    
+                        <li> <a href="#" > About</a> </li>
+                            <li> <a href="#" > Projects</a> 
+                                    <ul>
+                                           <li> <a href="#" > Project 1</a> </li>
+                                            <li> <a href="#" > Project 2</a> </li>
+                                            <li> <a href="#" > Project 3</a> </li>
+
+                                    </ul>
+                            </li><!--Projects-->
+                        <li> <a href="#" > Contact</a> </li>
+                    </ul>
+
+                </div><!--navigationBar-->
+                <div id="contentArea">
+
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+
+                    </asp:ContentPlaceHolder>
+
+
+                </div><!--contentArea-->
+                 <div id="sideBar">
+
+                 </div><!--sideBar-->
+                <div id="footer">
+
+                    <p>All rights Reserved.</p>
+                </div><!--footer-->
+
+           </div><!--wrapper-->
+
+
+    </form>
+</body>
+</html>
